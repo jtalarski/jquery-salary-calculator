@@ -1,0 +1,13 @@
+#container {
+    width: 80%;
+    margin: auto;
+    padding: 10px;
+}
+
+header {
+    background: grey;
+    color: white;
+    margin: 0;
+    padding: 50px;
+    text-align: center;
+}
