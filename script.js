@@ -3,7 +3,9 @@ $(document).ready(onReady);
 function onReady() {
     console.log('I am ready');
 
-    $('#addEmployeeBtn').on('click', addEmployee);
+    $('.addEmployeeBtn').on('click', addEmployee);
+    $(document).on('click', '.deleteButton', onDelete);
+
 }
 
 // create array of an object to store employee information
@@ -42,8 +44,11 @@ function displayEmployees() {
         ${employeeInfo[i].title}
         ${employeeInfo[i].salary}
         </li>
-        <button id=deleteButton>Delete</button>
+        <button class=deleteButton>Delete</button>
         `);
     } // end for
-
 } // end displayEmployees
+
+function onDelete() {
+    console.log('in onDelete');
+}
