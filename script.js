@@ -28,9 +28,21 @@ function addEmployee() {
     }; // end newRecord
     employeeInfo.push(newRecord);
     console.log(employeeInfo);
+
+
+    //new attempt at clearing the inputs
+    $("#firstNameIn").val('');
+    $('#lastNameIn').val('');
+    $('#idIn').val('');
+    $('#titleIn').val('');
+    $('#salary').val('');
+
+
+
+
+
     // pass employeeInfo to DOM
     displayEmployees();
-    //displayEmployeeTable();
     calculateMonthly();
 } // end addEmployee
 
@@ -38,7 +50,6 @@ function displayEmployees() {
     console.log('in displayEmployees');
     // mess with outputArea
     let el = $('#outputArea');
-    el.empty();
     el.empty();
     // loop through employeeInfo to display contents
     for (let i = 0; i < employeeInfo.length; i++) {
@@ -89,13 +100,7 @@ function calculateMonthly() {
     console.log("monthly total", totalYearly, totalMonthly);
     let el = $('#showMonthly');
     el.empty();
-    el.append(
-        "Total Monthly: $",
-        totalMonthly.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2,
-        })
-    );
+    el.append('Total Monthly: $', totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
     if (totalMonthly >= 20000) {
         $('#showMonthly').css('background-color', 'red');
     }
