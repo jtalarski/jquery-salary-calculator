@@ -3,13 +3,16 @@ $(document).ready(onReady);
 function onReady() {
     console.log('I am ready');
 
-    $('.addEmployeeBtn').on('click', addEmployee);
+    //$('.addEmployeeBtn').on('click', addEmployee);
+    $(document).on("click", ".addEmployeeBtn", addEmployee);
     $(document).on('click', '.deleteButton', onDelete);
 
 }
 
 // create array of an object to store employee information
 let employeeInfo = [];
+//let totalYearly = 0;
+let totalMonthly = 0;
 
 // create way to capture information on submit
 
@@ -27,6 +30,7 @@ function addEmployee() {
     console.log(employeeInfo);
     // pass employeeInfo to DOM
     displayEmployees();
+    calculateMonthly();
 } // end addEmployee
 
 function displayEmployees() {
@@ -43,12 +47,26 @@ function displayEmployees() {
         ${employeeInfo[i].id}
         ${employeeInfo[i].title}
         ${employeeInfo[i].salary}
-        </li>
         <button class=deleteButton>Delete</button>
+        </li>
         `);
     } // end for
 } // end displayEmployees
 
 function onDelete() {
-    console.log('in onDelete');
-}
+    console.log('in onDelete', $(this));
+    $(this).parent().remove();
+} // end onDelete
+
+function calculateMonthly() {
+    console.log('in calculateMonthly');
+    let totalYearly = 0
+    for (let i = 0; i < employeeInfo.length; i++) {
+        totalYearly += Number(employeeInfo[i].salary);
+        totalMonthly = totalYearly / 12
+    } // end for
+    console.log("monthly total", totalYearly, totalMonthly);
+    let el = $('#showMonthly');
+    el.empty();
+    el.append('Total Monthly:', totalMonthly)
+} //end calculateMonthly
