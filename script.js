@@ -34,6 +34,7 @@ function displayEmployees() {
     el.empty();
     // loop through employeeInfo to display contents
     for (let i = 0; i < employeeInfo.length; i++) {
+        el.empty();
         el.append(`
         <li>
         ${employeeInfo[i].first}
