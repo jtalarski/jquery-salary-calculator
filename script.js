@@ -34,7 +34,6 @@ function displayEmployees() {
     el.empty();
     // loop through employeeInfo to display contents
     for (let i = 0; i < employeeInfo.length; i++) {
-        el.empty();
         el.append(`
         <li>
         ${employeeInfo[i].first}
@@ -43,8 +42,8 @@ function displayEmployees() {
         ${employeeInfo[i].title}
         ${employeeInfo[i].salary}
         </li>
+        <button id=deleteButton>Delete</button>
         `);
-        el.empty();
     } // end for
 
 } // end displayEmployees
