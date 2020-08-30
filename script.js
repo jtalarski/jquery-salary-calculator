@@ -38,7 +38,9 @@ function addEmployee() {
 
     // pass employeeInfo to DOM
     displayEmployees();
+    displayEmployeeTable();
     calculateMonthly();
+
 } // end addEmployee
 
 function displayEmployees() {
@@ -61,9 +63,9 @@ function displayEmployees() {
     } // end for
 } // end displayEmployees
 
-/*function displayEmployeeTable() {
+function displayEmployeeTable() {
     console.log('in displayEmployeeTable');
-    let el = $('#tableAttempt');
+    let el = $('#tableAttempt2');
     el.empty();
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
@@ -72,12 +74,12 @@ function displayEmployees() {
             <td>${employeeInfo[i].last}</td>
             <td>${employeeInfo[i].id}</td>
             <td>${employeeInfo[i].title}</td>
-            <td>A${employeeInfo[i].salary}</td>
+            <td>${employeeInfo[i].salary}</td>
             <td><button class=deleteButton>Delete</button></td>
         </tr>
         `);
     } //end for
-}*/
+} //end displayEmployeeTable
 
 function onDelete() {
     console.log('in onDelete', $(this));
@@ -96,7 +98,9 @@ function calculateMonthly() {
     let el = $('#showMonthly');
     el.empty();
     el.append('Total Monthly: $', totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
+    $('#showMonthly').css('text-align', 'right');
     if (totalMonthly >= 20000) {
         $('#showMonthly').css('background-color', 'red');
+
     }
 } //end calculateMonthly
