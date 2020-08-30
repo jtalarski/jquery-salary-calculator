@@ -2,16 +2,7 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('I am ready');
-
-    //initial attempt at styling
-    //$('td .showMoney').css("background-color", "purple");
-    //$('tbody tr:odd').css('background-color', 'dimgray');
-    //$('.addEmployeeBtn').on('click', addEmployee);
-
-    let convertMoney = $('#tableAttempt .showMoney');
-    console.log('did it work', convertMoney.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
-
-    $(document).on("click", ".addEmployeeBtn", addEmployee); {}
+    $(document).on("click", ".addEmployeeBtn", addEmployee);
     $(document).on('click', '.deleteButton', onDelete);
 
 }
@@ -91,29 +82,3 @@ function onDelete() {
     console.log('in onDelete', $(this));
     $(this).parent().parent().remove();
 } // end onDelete
-
-let toColor = $('.showMoney')
-console.log('to Color', toColor);
-
-/*  retired displayEmployees
-
-// replaced with displayEmployeeTable
-function displayEmployees() {
-    console.log('in displayEmployees');
-    // mess with outputArea
-    let el = $('#outputArea');
-    el.empty();
-    // loop through employeeInfo to display contents
-    for (let i = 0; i < employeeInfo.length; i++) {
-        el.append(`
-        <li>
-        ${employeeInfo[i].first}
-        ${employeeInfo[i].last}
-        ${employeeInfo[i].id}
-        ${employeeInfo[i].title}
-        ${employeeInfo[i].salary}
-        <button class=deleteButton>Delete</button>
-        </li>
-        `);
-    } // end for
-} // end displayEmployees */
