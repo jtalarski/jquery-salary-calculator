@@ -85,8 +85,6 @@ function onDelete() {
     $(this).parent().parent().remove();
 } // end onDelete
 
-
-
 /*  retired displayEmployees
 
 // replaced with displayEmployeeTable
