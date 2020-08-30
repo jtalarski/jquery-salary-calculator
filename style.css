@@ -48,13 +48,3 @@ td {
 #tableAttempt2 tr:nth-child(even) {
     background-color: rgba(224, 224, 235, 0.678);
 }
-
-#tableAttempt2 .showMoney {}
-
-
-/*.showMoney {
-    font-weight: bolder;
-    background-color: purple;*/
-
-
-}
