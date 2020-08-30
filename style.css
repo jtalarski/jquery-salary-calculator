@@ -8,7 +8,7 @@ header {
     background: grey;
     color: white;
     margin: 0;
-    padding: 50px;
+    padding: 3px;
     text-align: center;
 }
 
@@ -35,4 +35,8 @@ td {
 
 #tableheader {
     background-color: lightgrey;
+}
+
+#showMonthly {
+    text-align: right;
 }

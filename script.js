@@ -29,7 +29,7 @@ function addEmployee() {
     employeeInfo.push(newRecord);
     console.log(employeeInfo);
 
-    //new attempt at clearing the inputs
+    //new attempt at clearing the inputs - Thanks to Ethan
     $("#firstNameIn").val('');
     $('#lastNameIn').val('');
     $('#idIn').val('');
@@ -37,31 +37,30 @@ function addEmployee() {
     $('#salaryIn').val('');
 
     // pass employeeInfo to DOM
-    displayEmployees();
+    // retired -- displayEmployees();
     displayEmployeeTable();
     calculateMonthly();
 
 } // end addEmployee
 
-function displayEmployees() {
-    console.log('in displayEmployees');
-    // mess with outputArea
-    let el = $('#outputArea');
-    el.empty();
-    // loop through employeeInfo to display contents
+function calculateMonthly() {
+    console.log('in calculateMonthly');
+    let totalYearly = 0
     for (let i = 0; i < employeeInfo.length; i++) {
-        el.append(`
-        <li>
-        ${employeeInfo[i].first}
-        ${employeeInfo[i].last}
-        ${employeeInfo[i].id}
-        ${employeeInfo[i].title}
-        ${employeeInfo[i].salary}
-        <button class=deleteButton>Delete</button>
-        </li>
-        `);
+        totalYearly += Number(employeeInfo[i].salary);
+        totalMonthly = totalYearly / 12;
+        console.log('$', totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
     } // end for
-} // end displayEmployees
+    console.log("monthly total", totalYearly, totalMonthly);
+    let el = $('#showMonthly');
+    el.empty();
+    el.append('Total Monthly: $', totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
+        //$('#showMonthly').css('text-align', 'right');
+    if (totalMonthly >= 20000) {
+        $('#showMonthly').css('background-color', 'red');
+
+    }
+} //end calculateMonthly
 
 function displayEmployeeTable() {
     console.log('in displayEmployeeTable');
@@ -83,24 +82,30 @@ function displayEmployeeTable() {
 
 function onDelete() {
     console.log('in onDelete', $(this));
-    $(this).parent().remove();
+    $(this).parent().parent().remove();
 } // end onDelete
 
-function calculateMonthly() {
-    console.log('in calculateMonthly');
-    let totalYearly = 0
-    for (let i = 0; i < employeeInfo.length; i++) {
-        totalYearly += Number(employeeInfo[i].salary);
-        totalMonthly = totalYearly / 12;
-        console.log('$', totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
-    } // end for
-    console.log("monthly total", totalYearly, totalMonthly);
-    let el = $('#showMonthly');
-    el.empty();
-    el.append('Total Monthly: $', totalMonthly.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
-    $('#showMonthly').css('text-align', 'right');
-    if (totalMonthly >= 20000) {
-        $('#showMonthly').css('background-color', 'red');
 
-    }
-} //end calculateMonthly
+
+/*  retired displayEmployees
+
+// replaced with displayEmployeeTable
+function displayEmployees() {
+    console.log('in displayEmployees');
+    // mess with outputArea
+    let el = $('#outputArea');
+    el.empty();
+    // loop through employeeInfo to display contents
+    for (let i = 0; i < employeeInfo.length; i++) {
+        el.append(`
+        <li>
+        ${employeeInfo[i].first}
+        ${employeeInfo[i].last}
+        ${employeeInfo[i].id}
+        ${employeeInfo[i].title}
+        ${employeeInfo[i].salary}
+        <button class=deleteButton>Delete</button>
+        </li>
+        `);
+    } // end for
+} // end displayEmployees */
