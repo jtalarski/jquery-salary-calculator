@@ -3,7 +3,14 @@ $(document).ready(onReady);
 function onReady() {
     console.log('I am ready');
 
+    //initial attempt at styling
+    //$('td .showMoney').css("background-color", "purple");
+    //$('tbody tr:odd').css('background-color', 'dimgray');
     //$('.addEmployeeBtn').on('click', addEmployee);
+
+    let convertMoney = $('#tableAttempt .showMoney');
+    console.log('did it work', convertMoney.toLocaleString(undefined, { minimumFractionDigits: 2, maximumFractionDigits: 2 }))
+
     $(document).on("click", ".addEmployeeBtn", addEmployee); {}
     $(document).on('click', '.deleteButton', onDelete);
 
@@ -69,11 +76,11 @@ function displayEmployeeTable() {
     for (let i = 0; i < employeeInfo.length; i++) {
         el.append(`
         <tr>
-            <td>${employeeInfo[i].first}</td>
+            <td class=first>${employeeInfo[i].first}</td>
             <td>${employeeInfo[i].last}</td>
             <td>${employeeInfo[i].id}</td>
             <td>${employeeInfo[i].title}</td>
-            <td>${employeeInfo[i].salary}</td>
+            <td class=showMoney>${employeeInfo[i].salary}</td>
             <td><button class=deleteButton>Delete</button></td>
         </tr>
         `);
@@ -84,6 +91,9 @@ function onDelete() {
     console.log('in onDelete', $(this));
     $(this).parent().parent().remove();
 } // end onDelete
+
+let toColor = $('.showMoney')
+console.log('to Color', toColor);
 
 /*  retired displayEmployees
 
