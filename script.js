@@ -29,17 +29,12 @@ function addEmployee() {
     employeeInfo.push(newRecord);
     console.log(employeeInfo);
 
-
     //new attempt at clearing the inputs
     $("#firstNameIn").val('');
     $('#lastNameIn').val('');
     $('#idIn').val('');
     $('#titleIn').val('');
-    $('#salary').val('');
-
-
-
-
+    $('#salaryIn').val('');
 
     // pass employeeInfo to DOM
     displayEmployees();
