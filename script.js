@@ -69,7 +69,7 @@ function displayEmployeeTable() {
         <tr>
             <td class=first>${employeeInfo[i].first}</td>
             <td>${employeeInfo[i].last}</td>
-            <td>${employeeInfo[i].id}</td>
+            <td class=empId>${employeeInfo[i].id}</td>
             <td>${employeeInfo[i].title}</td>
             <td class=showMoney>${employeeInfo[i].salary}</td>
             <td><button class=deleteButton>Delete</button></td>
@@ -80,5 +80,14 @@ function displayEmployeeTable() {
 
 function onDelete() {
     console.log('in onDelete', $(this));
-    $(this).parent().parent().remove();
+
+    // attempte at removing item from array
+    let listRow = $(this).parent();
+    console.log('parent td is', listRow);
+    let listId = listRow.siblings('.empId').text();
+    console.log('list id is ', listId);
+    // end attempt
+
+
+    //$(this).parent().parent().remove();
 } // end onDelete
