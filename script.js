@@ -80,14 +80,20 @@ function displayEmployeeTable() {
 
 function onDelete() {
     console.log('in onDelete', $(this));
+    $(this).parent().parent().remove();
+}
 
-    // attempte at removing item from array
-    let listRow = $(this).parent();
-    console.log('parent td is', listRow);
-    let listId = listRow.siblings('.empId').text();
-    console.log('list id is ', listId);
-    // end attempt
+/*function newAttempt() {
+    console.log('In new attempt');
+    listRow = $(this).parent();
+    listId = listRow.siblings('.empId').text();
+    console.log('listId:', listId);
+    for (let i = 0; i < employeeInfo.length; i++) {
+        if (employeeInfo[i].id = listId) {
+            employeeInfo.splice([i], 1);
 
-
-    //$(this).parent().parent().remove();
-} // end onDelete
+        } //en if
+    } // end for
+    $(this).parent().parent().remove();
+    calculateMonthly()
+} // end newAttempt*/
